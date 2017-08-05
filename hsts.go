@@ -19,6 +19,23 @@ type Config struct {
 	Preload           bool
 }
 
+// Pre-defiend config
+var (
+	DefaultConfig = Config{
+		Skipper:           middleware.SkipHTTP,
+		MaxAge:            31536000 * time.Second,
+		IncludeSubDomains: false,
+		Preload:           false,
+	}
+
+	PreloadConfig = Config{
+		Skipper:           middleware.SkipHTTP,
+		MaxAge:            63072000 * time.Second,
+		IncludeSubDomains: true,
+		Preload:           true,
+	}
+)
+
 // New creates new HSTS middleware
 func New(config Config) func(http.Handler) http.Handler {
 	if config.Skipper == nil {
