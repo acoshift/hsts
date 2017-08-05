@@ -26,7 +26,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	h := middleware.Chain(
 		hsts.New(hsts.Config{
-			MaxAge:            time.Duration(31536000),
+			MaxAge:            31536000 * time.Second,
 			IncludeSubDomains: true,
 			Preload:           true,
 		}),
