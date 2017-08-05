@@ -11,7 +11,7 @@ import (
 	"github.com/acoshift/middleware"
 )
 
-// Config is the hsts config
+// Config is the HSTS config
 type Config struct {
 	Skipper           middleware.Skipper
 	MaxAge            time.Duration
@@ -19,7 +19,7 @@ type Config struct {
 	Preload           bool
 }
 
-// New creates new CORS middleware
+// New creates new HSTS middleware
 func New(config Config) func(http.Handler) http.Handler {
 	if config.Skipper == nil {
 		config.Skipper = middleware.DefaultSkipper
