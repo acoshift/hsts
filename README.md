@@ -1,0 +1,2 @@
+# hsts
+HSTS Middleware
